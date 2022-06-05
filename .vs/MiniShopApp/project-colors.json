@@ -1,0 +1,31 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "44a728cc-6baa-41c6-aa44-c7ec7a59a340": {
+      "ProjectGuid": "44a728cc-6baa-41c6-aa44-c7ec7a59a340",
+      "DisplayName": "MiniShopApp.Data",
+      "ColorIndex": 0
+    },
+    "3cfd3bdf-68c4-48e6-9e29-4eba5d495902": {
+      "ProjectGuid": "3cfd3bdf-68c4-48e6-9e29-4eba5d495902",
+      "DisplayName": "MiniShopApp.Entity",
+      "ColorIndex": 1
+    },
+    "95b94c57-be07-4130-888f-d86d3bb90bc9": {
+      "ProjectGuid": "95b94c57-be07-4130-888f-d86d3bb90bc9",
+      "DisplayName": "MiniShopApp.WebUI",
+      "ColorIndex": 2
+    },
+    "ebad99f1-4a1e-4f96-af80-26a82d5567a0": {
+      "ProjectGuid": "ebad99f1-4a1e-4f96-af80-26a82d5567a0",
+      "DisplayName": "MiniShopApp.Business",
+      "ColorIndex": 3
+    },
+    "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3": {
+      "ProjectGuid": "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3",
+      "DisplayName": "Miscellaneous Files",
+      "ColorIndex": -1
+    }
+  },
+  "NextColorIndex": 4
+}

@@ -1,0 +1,313 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Users\\korkk\\OneDrive\\Masaüstü\\MiniShopApp\\MiniShopApp.WebUI\\MiniShopApp.WebUI.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\korkk\\OneDrive\\Masaüstü\\MiniShopApp\\MiniShopApp.Business\\MiniShopApp.Business.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\korkk\\OneDrive\\Masaüstü\\MiniShopApp\\MiniShopApp.Business\\MiniShopApp.Business.csproj",
+        "projectName": "MiniShopApp.Business",
+        "projectPath": "C:\\Users\\korkk\\OneDrive\\Masaüstü\\MiniShopApp\\MiniShopApp.Business\\MiniShopApp.Business.csproj",
+        "packagesPath": "C:\\Users\\korkk\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\korkk\\OneDrive\\Masaüstü\\MiniShopApp\\MiniShopApp.Business\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\korkk\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net5.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net5.0": {
+            "targetAlias": "net5.0",
+            "projectReferences": {
+              "C:\\Users\\korkk\\OneDrive\\Masaüstü\\MiniShopApp\\MiniShopApp.Data\\MiniShopApp.Data.csproj": {
+                "projectPath": "C:\\Users\\korkk\\OneDrive\\Masaüstü\\MiniShopApp\\MiniShopApp.Data\\MiniShopApp.Data.csproj"
+              },
+              "C:\\Users\\korkk\\OneDrive\\Masaüstü\\MiniShopApp\\MiniShopApp.Entity\\MiniShopApp.Entity.csproj": {
+                "projectPath": "C:\\Users\\korkk\\OneDrive\\Masaüstü\\MiniShopApp\\MiniShopApp.Entity\\MiniShopApp.Entity.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net5.0": {
+          "targetAlias": "net5.0",
+          "dependencies": {
+            "Microsoft.AspNetCore.Http.Features": {
+              "target": "Package",
+              "version": "[5.0.17, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.101\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\korkk\\OneDrive\\Masaüstü\\MiniShopApp\\MiniShopApp.Data\\MiniShopApp.Data.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\korkk\\OneDrive\\Masaüstü\\MiniShopApp\\MiniShopApp.Data\\MiniShopApp.Data.csproj",
+        "projectName": "MiniShopApp.Data",
+        "projectPath": "C:\\Users\\korkk\\OneDrive\\Masaüstü\\MiniShopApp\\MiniShopApp.Data\\MiniShopApp.Data.csproj",
+        "packagesPath": "C:\\Users\\korkk\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\korkk\\OneDrive\\Masaüstü\\MiniShopApp\\MiniShopApp.Data\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\korkk\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net5.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net5.0": {
+            "targetAlias": "net5.0",
+            "projectReferences": {
+              "C:\\Users\\korkk\\OneDrive\\Masaüstü\\MiniShopApp\\MiniShopApp.Entity\\MiniShopApp.Entity.csproj": {
+                "projectPath": "C:\\Users\\korkk\\OneDrive\\Masaüstü\\MiniShopApp\\MiniShopApp.Entity\\MiniShopApp.Entity.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net5.0": {
+          "targetAlias": "net5.0",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[5.0.16, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[5.0.16, )"
+            },
+            "Microsoft.EntityFrameworkCore.Sqlite": {
+              "target": "Package",
+              "version": "[5.0.16, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.101\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\korkk\\OneDrive\\Masaüstü\\MiniShopApp\\MiniShopApp.Entity\\MiniShopApp.Entity.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\korkk\\OneDrive\\Masaüstü\\MiniShopApp\\MiniShopApp.Entity\\MiniShopApp.Entity.csproj",
+        "projectName": "MiniShopApp.Entity",
+        "projectPath": "C:\\Users\\korkk\\OneDrive\\Masaüstü\\MiniShopApp\\MiniShopApp.Entity\\MiniShopApp.Entity.csproj",
+        "packagesPath": "C:\\Users\\korkk\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\korkk\\OneDrive\\Masaüstü\\MiniShopApp\\MiniShopApp.Entity\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\korkk\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net5.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net5.0": {
+            "targetAlias": "net5.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net5.0": {
+          "targetAlias": "net5.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.101\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\korkk\\OneDrive\\Masaüstü\\MiniShopApp\\MiniShopApp.WebUI\\MiniShopApp.WebUI.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\korkk\\OneDrive\\Masaüstü\\MiniShopApp\\MiniShopApp.WebUI\\MiniShopApp.WebUI.csproj",
+        "projectName": "MiniShopApp.WebUI",
+        "projectPath": "C:\\Users\\korkk\\OneDrive\\Masaüstü\\MiniShopApp\\MiniShopApp.WebUI\\MiniShopApp.WebUI.csproj",
+        "packagesPath": "C:\\Users\\korkk\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\korkk\\OneDrive\\Masaüstü\\MiniShopApp\\MiniShopApp.WebUI\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\korkk\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net5.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net5.0": {
+            "targetAlias": "net5.0",
+            "projectReferences": {
+              "C:\\Users\\korkk\\OneDrive\\Masaüstü\\MiniShopApp\\MiniShopApp.Business\\MiniShopApp.Business.csproj": {
+                "projectPath": "C:\\Users\\korkk\\OneDrive\\Masaüstü\\MiniShopApp\\MiniShopApp.Business\\MiniShopApp.Business.csproj"
+              },
+              "C:\\Users\\korkk\\OneDrive\\Masaüstü\\MiniShopApp\\MiniShopApp.Data\\MiniShopApp.Data.csproj": {
+                "projectPath": "C:\\Users\\korkk\\OneDrive\\Masaüstü\\MiniShopApp\\MiniShopApp.Data\\MiniShopApp.Data.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net5.0": {
+          "targetAlias": "net5.0",
+          "dependencies": {
+            "Castle.Core": {
+              "target": "Package",
+              "version": "[5.0.0, )"
+            },
+            "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[5.0.16, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[5.0.16, )"
+            },
+            "Microsoft.EntityFrameworkCore.Sqlite": {
+              "target": "Package",
+              "version": "[5.0.16, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[5.0.16, )"
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.1, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.101\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}
