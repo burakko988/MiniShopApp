@@ -11,10 +11,11 @@ namespace MiniShopApp.Business.Concrete
 {
     public class ProductManager : IProductService
     {
-        private readonly IProductRepository _productRepository;
-        public ProductManager(IProductRepository productRepository)
+        private readonly IUnitOfWork _unitOfWork;
+
+        public ProductManager(IUnitOfWork unitOfWork)
         {
-            _productRepository = productRepository;
+            _unitOfWork = unitOfWork;
         }
 
         public void Create(Product entity)
@@ -24,56 +25,71 @@ namespace MiniShopApp.Business.Concrete
 
         public void Create(Product entity, int[] categoryIds)
         {
-            _productRepository.Create(entity, categoryIds);
+            _unitOfWork.Products.Create(entity, categoryIds);
+            _unitOfWork.Save();
+        }
+
+        public async Task<Product> CreateAsync(Product entity)
+        {
+           await _unitOfWork.Products.CreateAsync(entity);
+            await _unitOfWork.SaveAsync();
+            return entity;
         }
 
         public void Delete(Product entity)
         {
-            _productRepository.Delete(entity);
+            _unitOfWork.Products.Delete(entity);
+            _unitOfWork.Save();
         }
 
-        public List<Product> GetAll()
+        public async Task DeleteAsync(Product entity)
+        {
+            _unitOfWork.Products.Delete(entity);
+           await _unitOfWork.SaveAsync();
+        }
+
+        public async Task<List<Product>> GetAll()
         {
             //Burada ürünlerin listelenmesi sağlanıyor.
             //Fakat ürün listeleme yapan metot çalıştırılmadan önce
             //Burada çeşitli iş kuralları uygulanacak.(Validation vb.)
             //Bunu daha sonra yazacağız.
-            return _productRepository.GetAll();
+            return await _unitOfWork.Products.GetAll();
         }
 
-        public Product GetById(int id)
+        public async Task<Product> GetById(int id)
         {
-            return _productRepository.GetById(id);
+            return await _unitOfWork.Products.GetById(id);
         }
 
         public Product GetByIdWithCategories(int id)
         {
-            return _productRepository.GetByIdWithCategories(id);
+            return _unitOfWork.Products.GetByIdWithCategories(id);
         }
 
         public int GetCountByCategory(string category)
         {
-            return _productRepository.GetCountByCategory(category);
+            return _unitOfWork.Products.GetCountByCategory(category);
         }
 
         public List<Product> GetHomePageProducts()
         {
-            return _productRepository.GetHomePageProducts();
+            return _unitOfWork.Products.GetHomePageProducts();
         }
 
         public Product GetProductDetails(string url)
         {
-            return _productRepository.GetProductDetails(url);
+            return _unitOfWork.Products.GetProductDetails(url);
         }
 
         public List<Product> GetProductsByCategory(string name, int page, int pageSize)
         {
-            return _productRepository.GetProductsByCategory(name, page, pageSize);
+            return _unitOfWork.Products.GetProductsByCategory(name, page, pageSize);
         }
 
         public List<Product> GetSearchResult(string searchString)
         {
-            return _productRepository.GetSearchResult(searchString);
+            return _unitOfWork.Products.GetSearchResult(searchString);
         }
 
         public void Update(Product entity)
@@ -83,7 +99,14 @@ namespace MiniShopApp.Business.Concrete
 
         public void Update(Product entity, int[] categoryIds)
         {
-            _productRepository.Update(entity, categoryIds);
+            _unitOfWork.Products.Update(entity, categoryIds);
+            _unitOfWork.Save();
+        }
+
+        public async Task UpdateProductAsync(Product entityToUpdate, Product entity)
+        {
+            _unitOfWork.Products.UpdateProduct(entityToUpdate, entity);
+            await  _unitOfWork.SaveAsync();
         }
 
     }

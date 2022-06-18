@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\korkk\\OneDrive\\Masaüstü\\MiniShopApp\\MiniShopApp.Entity\\MiniShopApp.Entity.csproj": {}
+    "C:\\Users\\korkk\\OneDrive\\Masaüstü\\xbm\\MiniShopApp\\MiniShopApp.Entity\\MiniShopApp.Entity.csproj": {}
   },
   "projects": {
-    "C:\\Users\\korkk\\OneDrive\\Masaüstü\\MiniShopApp\\MiniShopApp.Entity\\MiniShopApp.Entity.csproj": {
+    "C:\\Users\\korkk\\OneDrive\\Masaüstü\\xbm\\MiniShopApp\\MiniShopApp.Entity\\MiniShopApp.Entity.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\korkk\\OneDrive\\Masaüstü\\MiniShopApp\\MiniShopApp.Entity\\MiniShopApp.Entity.csproj",
+        "projectUniqueName": "C:\\Users\\korkk\\OneDrive\\Masaüstü\\xbm\\MiniShopApp\\MiniShopApp.Entity\\MiniShopApp.Entity.csproj",
         "projectName": "MiniShopApp.Entity",
-        "projectPath": "C:\\Users\\korkk\\OneDrive\\Masaüstü\\MiniShopApp\\MiniShopApp.Entity\\MiniShopApp.Entity.csproj",
+        "projectPath": "C:\\Users\\korkk\\OneDrive\\Masaüstü\\xbm\\MiniShopApp\\MiniShopApp.Entity\\MiniShopApp.Entity.csproj",
         "packagesPath": "C:\\Users\\korkk\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\korkk\\OneDrive\\Masaüstü\\MiniShopApp\\MiniShopApp.Entity\\obj\\",
+        "outputPath": "C:\\Users\\korkk\\OneDrive\\Masaüstü\\xbm\\MiniShopApp\\MiniShopApp.Entity\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

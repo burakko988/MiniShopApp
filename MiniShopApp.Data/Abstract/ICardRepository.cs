@@ -10,5 +10,7 @@ namespace MiniShopApp.Data.Abstract
     public interface ICardRepository : IRepository<Card>
     {
         Card GetByUserId(string userId);
+        void DeleteFromCard(int cardId, int productId);
+        void ClearCard(int cardId);
     }
 }

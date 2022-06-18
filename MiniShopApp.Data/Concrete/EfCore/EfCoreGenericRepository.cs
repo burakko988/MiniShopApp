@@ -8,47 +8,45 @@ using System.Threading.Tasks;
 
 namespace MiniShopApp.Data.Concrete.EfCore
 {
-    public class EfCoreGenericRepository<TEntity, TContext> : IRepository<TEntity>
-        where TEntity: class
-        where TContext: DbContext, new()
+    public class EfCoreGenericRepository<TEntity> : IRepository<TEntity>
+        where TEntity : class
     {
+        protected readonly DbContext _context;
+
+        public EfCoreGenericRepository(DbContext context)
+        {
+            _context = context;
+        }
+
         public void Create(TEntity entity)
         {
-            using (var context = new MiniShopContext())
-            {
-                context.Set<TEntity>().Add(entity);
-                context.SaveChanges();
-            }
+            _context.Set<TEntity>().Add(entity);
+
+        }
+
+        public async Task CreateAsync(TEntity entity)
+        {
+            await _context.Set<TEntity>().AddAsync(entity);
         }
 
         public void Delete(TEntity entity)
         {
-            using (var context = new TContext())
-            {
-                context.Set<TEntity>().Remove(entity);
-                context.SaveChanges();
-            }
+            _context.Set<TEntity>().Remove(entity);
         }
 
-        public List<TEntity> GetAll()
+        public async Task<List<TEntity>> GetAll()
         {
-            using (var context = new TContext())
-            {
-                return context.Set<TEntity>().ToList();
-            }
+            return await _context.Set<TEntity>().ToListAsync();
         }
 
-        public TEntity GetById(int id)
+        public async Task<TEntity> GetById(int id)
         {
-            using (var context = new TContext())
-            {
-                return context.Set<TEntity>().Find(id);
-            }
+            return await _context.Set<TEntity>().FindAsync(id);
         }
 
-        public void Update(TEntity entity)
+        public virtual void Update(TEntity entity)
         {
-            throw new NotImplementedException();
+            _context.Entry(entity).State = EntityState.Modified;
         }
     }
 }

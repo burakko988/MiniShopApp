@@ -1,0 +1,59 @@
+﻿@model List<OrderListModel>
+<h6 class="display-4">Orders</h6>
+<hr />
+@foreach (var order in Model)
+{
+    <table class="table table-sm table-bordered mb-3">
+        <thead>
+            <tr class="bg-info">
+                <th colspan="2">Order Id: #@order.OrderId</th>
+                <th>Price</th>
+                <th>Quantity</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var orderItem in order.OrderItems)
+            {
+                <tr>
+                    <td>
+                        <img src="~/img/@orderItem.ImageUrl" alt="Alternate Text" width="30" />
+                    </td>
+                    <td>@orderItem.Name</td>
+                    <td>@orderItem.Price</td>
+                    <td>@orderItem.Quantity</td>
+                </tr>
+            }
+        </tbody>
+        <tfoot>
+            <tr>
+                <th colspan="2">Customer Name:</th>
+                <td>@order.FirstName @order.LastName</td>
+                <td rowspan="7">Total: @order.TotalPrice().ToString("c")</td>
+            </tr>
+            <tr>
+                <th colspan="2">Address:</th>
+                <td>@order.Address</td>
+            </tr>
+            <tr>
+                <th colspan="2">City:</th>
+                <td>@order.City</td>
+            </tr>
+            <tr>
+                <th colspan="2">Phone:</th>
+                <td>@order.Phone</td>
+            </tr>
+            <tr>
+                <th colspan="2">Email:</th>
+                <td>@order.Email</td>
+            </tr>
+            <tr>
+                <th colspan="2">Order Status:</th>
+                <td>@order.OrderState</td>
+            </tr>
+            <tr>
+                <th colspan="2">Payment Type:</th>
+                <td>@order.PaymentType</td>
+            </tr>
+        </tfoot>
+    </table>
+}

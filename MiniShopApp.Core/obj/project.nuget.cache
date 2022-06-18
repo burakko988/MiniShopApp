@@ -1,0 +1,13 @@
+{
+  "version": 2,
+  "dgSpecHash": "MIbHrUrkZiHVDthdfUogQMN2XzomWfA2BFJkUbAD1r/ffeJZSDcNuVfMmqMHs59CLxVhorrj853nRDMgBJzDRw==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\korkk\\OneDrive\\Masaüstü\\xbm\\MiniShopApp\\MiniShopApp.Core\\MiniShopApp.Core.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\korkk\\.nuget\\packages\\microsoft.aspnetcore.http.features\\5.0.17\\microsoft.aspnetcore.http.features.5.0.17.nupkg.sha512",
+    "C:\\Users\\korkk\\.nuget\\packages\\microsoft.extensions.primitives\\5.0.1\\microsoft.extensions.primitives.5.0.1.nupkg.sha512",
+    "C:\\Users\\korkk\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512",
+    "C:\\Users\\korkk\\.nuget\\packages\\system.io.pipelines\\5.0.2\\system.io.pipelines.5.0.2.nupkg.sha512"
+  ],
+  "logs": []
+}

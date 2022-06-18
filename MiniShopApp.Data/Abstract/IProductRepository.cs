@@ -18,5 +18,7 @@ namespace MiniShopApp.Data.Abstract
         void Create(Product entity, int[] categoryIds);
         void Update(Product entity, int[] categoryIds);
         Product GetByIdWithCategories(int id);
+        Product UpdateProduct(Product entityToUpdate ,Product entity); 
+
     }
 }

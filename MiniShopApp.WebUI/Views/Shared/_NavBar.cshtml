@@ -12,11 +12,15 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="MiniShop" asp-action="List" asp-route-category="">Products</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Card" asp-action="Index">Cards</a>
-                        </li>
+
                         @if (User.Identity.IsAuthenticated)
                         {
+                            <li class="nav-item">
+                                <a href="/card" class="nav-link text-dark">Card</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="/orders" class="nav-link text-dark">Orders</a>
+                            </li>
                             if (User.IsInRole("Admin"))
                             {
                                 <li class="nav-item">

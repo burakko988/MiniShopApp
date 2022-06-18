@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using MiniShopApp.Business.Abstract;
 using MiniShopApp.Business.Concrete;
+using MiniShopApp.Core;
 using MiniShopApp.Entity;
 using MiniShopApp.WebUI.Identity;
 using MiniShopApp.WebUI.Models;
@@ -219,13 +220,15 @@ namespace MiniShopApp.WebUI.Controllers
             }
             return Redirect("/admin/role/"+model.RoleId);
         }
-        public IActionResult ProductList()
+        public async Task<IActionResult> ProductList()
         {
-            return View(_productService.GetAll());
+            var products = await _productService.GetAll();
+            return View( products);
         }
-        public IActionResult ProductCreate()
+        public async Task<IActionResult> ProductCreate()
         {
-            ViewBag.Categories = _categoryService.GetAll();
+            var categories = await _categoryService.GetAll();
+            ViewBag.Categories =categories ;
             return View();
         }
         [HttpPost]
@@ -247,7 +250,7 @@ namespace MiniShopApp.WebUI.Controllers
                 };
                 _productService.Create(product, categoryIds);
 
-                CreateMessage("Ürün eklenmiştir", "success");
+                TempData["Message"] = JobManager.CreateMessage("BİLGİ","Ürün eklenmiştir", "success");
                 return RedirectToAction("ProductList");
             }
             //İşler yolunda gitmediyse
@@ -272,7 +275,7 @@ namespace MiniShopApp.WebUI.Controllers
             return View(model);
 
         }
-        public IActionResult ProductEdit(int? id)
+        public async Task<IActionResult> ProductEdit(int? id)
         {
 
                 var entity = _productService.GetByIdWithCategories((int)id);
@@ -291,12 +294,13 @@ namespace MiniShopApp.WebUI.Controllers
                         .Select(i => i.Category)
                         .ToList()
                 };
-                ViewBag.Categories = _categoryService.GetAll();
+            var categories = await _categoryService.GetAll();
+                ViewBag.Categories =categories ;
                 return View(model);
             
         }
         [HttpPost]
-        public IActionResult ProductEdit(ProductModel model, int[] categoryIds, IFormFile file)
+        public async Task<IActionResult> ProductEdit(ProductModel model, int[] categoryIds, IFormFile file)
         {
             //Aslında üçüncü bir parametremiz de olacak. (Create'te de olacak)
             //IFormFile tipinde resim.
@@ -304,7 +308,7 @@ namespace MiniShopApp.WebUI.Controllers
             {
                 var url = JobManager.MakeUrl(model.Name);
                 model.ImageUrl = JobManager.UploadImage(file, url);
-                var entity = _productService.GetById(model.ProductId);
+                var entity = await _productService.GetById(model.ProductId);
                 if (entity==null)
                 {
                     return NotFound();
@@ -318,7 +322,7 @@ namespace MiniShopApp.WebUI.Controllers
                 entity.IsHome = model.IsHome;
                 entity.ImageUrl = model.ImageUrl;
                 _productService.Update(entity, categoryIds);
-                CreateMessage("Ürün başarıyla güncellenmiştir.", "success");
+                TempData["Message"] = JobManager.CreateMessage("","Ürün başarıyla güncellenmiştir.", "success");
                 return RedirectToAction("ProductList");
             }
             if (categoryIds.Length > 0)
@@ -337,25 +341,19 @@ namespace MiniShopApp.WebUI.Controllers
             {
                 ViewBag.ImageMessage = "Lütfen bir resim seçiniz!";
             }
-            ViewBag.Categories = _categoryService.GetAll();
+            var categories = await _categoryService.GetAll();
+            ViewBag.Categories = categories;
             return View(model);
         }
 
-        public IActionResult ProductDelete(int productId)
+        public async Task<IActionResult> ProductDelete(int productId)
         {
-            var entity = _productService.GetById(productId);
+            var entity = await _productService.GetById(productId);
             _productService.Delete(entity);
+            TempData["Message"] = JobManager.CreateMessage("BİLGİ", "Ürün başarıyla silinmiştir.", "success");
             return RedirectToAction("ProductList");
+            
         }
 
-        private void CreateMessage(string message, string alertType)
-        {
-            var msg = new AlertMessage()
-            {
-                Message = message,
-                AlertType = alertType
-            };
-            TempData["Message"] = JsonConvert.SerializeObject(msg);
-        }
     }
 }

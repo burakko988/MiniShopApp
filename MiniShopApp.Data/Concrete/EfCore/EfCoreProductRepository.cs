@@ -9,8 +9,16 @@ using System.Threading.Tasks;
 
 namespace MiniShopApp.Data.Concrete.EfCore
 {
-    public class EfCoreProductRepository : EfCoreGenericRepository<Product, MiniShopContext>, IProductRepository
+    public class EfCoreProductRepository : EfCoreGenericRepository<Product>, IProductRepository
     {
+        public EfCoreProductRepository(MiniShopContext MiniShopContext) : base(MiniShopContext)
+        {
+
+        }
+        private MiniShopContext MiniShopContext
+        {
+            get { return _context as MiniShopContext; }
+        }
         private string ConvertLower(string text)
         {
             //İstanbul Irak Üzgün Şelaler Satırarası
@@ -31,11 +39,7 @@ namespace MiniShopApp.Data.Concrete.EfCore
         {
 
             searchString = ConvertLower(searchString);
-            // Burada metodun döndürdüğü değer string, ama biz linq sorgularıyla çalışırken
-            // işimize yaramıyor!DÜZELTİLECEK
-            using (var context = new MiniShopContext())
-            {
-                var products = context
+                var products = MiniShopContext
                     .Products
                     .Where(i => i.IsApproved).ToList();
                 foreach (var item in products)
@@ -48,39 +52,29 @@ namespace MiniShopApp.Data.Concrete.EfCore
                     .ToList();
                 
                 return products2;
-            }
+            
         }
         public List<Product> GetHomePageProducts()
         {
-            using (var context = new MiniShopContext())
-            {
-                return context
+                return MiniShopContext
                     .Products
                     .Where(i => i.IsApproved && i.IsHome)
                     .ToList();
-            }
         }
 
         public Product GetProductDetails(string url)
         {
-            using (var context = new MiniShopContext())
-            {
-                return context
+                return MiniShopContext
                     .Products
                     .Where(i => i.Url == url)
                     .Include(i => i.ProductCategories)
                     .ThenInclude(i => i.Category)
                     .FirstOrDefault();
-            }
         }
 
-        //Burada görünmeseler de EfCoreGenericRepository classımızdaki tüm metotlar var.
-        //Temel CRUD işlemlerini yapan 5 metot.
         public List<Product> GetProductsByCategory(string name, int page, int pageSize)
         {
-            using (var context= new MiniShopContext())
-            {
-                var products = context
+                var products = MiniShopContext
                     .Products
                     .Where(i => i.IsApproved)
                     .AsQueryable();
@@ -92,15 +86,12 @@ namespace MiniShopApp.Data.Concrete.EfCore
                         .Where(i => i.ProductCategories.Any(a => a.Category.Url == name));
                 }
                 return products.Skip((page - 1) * pageSize).Take(pageSize).ToList();
-            }
 
         }
 
         public int GetCountByCategory(string category)
         {
-            using (var context = new MiniShopContext())
-            {
-                var products = context
+                var products = MiniShopContext
                     .Products
                     .Where(i => i.IsApproved)
                     .AsQueryable();
@@ -112,31 +103,24 @@ namespace MiniShopApp.Data.Concrete.EfCore
                         .Where(i => i.ProductCategories.Any(a => a.Category.Url == category));
                 }
                 return products.Count();
-            }
         }
 
         public void Create(Product entity, int[] categoryIds)
         {
-            using (var context = new MiniShopContext())
-            {
-                context.Products.Add(entity);
-                context.SaveChanges();
+                MiniShopContext.Products.Add(entity);
+                MiniShopContext.SaveChanges();
                 entity.ProductCategories = categoryIds
                     .Select(catId => new ProductCategory
                     {
                         ProductId = entity.ProductId,
                         CategoryId = catId
                     }).ToList();
-                context.SaveChanges();
-            }
 
         }
 
         public void Update(Product entity, int[] categoryIds)
         {
-            using (var context = new MiniShopContext())
-            {
-                var product = context
+                var product = MiniShopContext
                     .Products
                     .Include(i => i.ProductCategories)
                     .FirstOrDefault(i=>i.ProductId==entity.ProductId);
@@ -153,21 +137,25 @@ namespace MiniShopApp.Data.Concrete.EfCore
                         ProductId = entity.ProductId,
                         CategoryId = catId
                     }).ToList();
-                context.SaveChanges();
-            }
         }
 
         public Product GetByIdWithCategories(int id)
         {
-            using (var context = new MiniShopContext())
-            {
-                return context
+                return MiniShopContext
                     .Products
                     .Where(i => i.ProductId == id)
                     .Include(i => i.ProductCategories)
                     .ThenInclude(i => i.Category)
                     .FirstOrDefault();
-            }
         }
+
+        public Product UpdateProduct(Product entityToUpdate, Product entity)
+        {
+            entityToUpdate.Name = entity.Name;
+            entityToUpdate.Price = entity.Price;
+            entityToUpdate.Description = entity.Description;
+            return entityToUpdate;
+        }
+        
     }
 }
